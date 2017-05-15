@@ -1,0 +1,123 @@
+//font
+$font-family:     Arial, "Helvetica Neue", Helvetica, sans-serif;
+$primary-color:   #797979;
+
+//colors
+$light-grey: #dddddd;
+$grey: #767676;
+$dark-grey: #444444;
+$black: #000000;
+$success-color: #17b722;
+$error-color: #de160f;
+
+//widths
+$li-width: 500px;
+
+//media queries
+$small-devices:     768px;
+$medium-devices:    992px;
+$large-devices:     1200px;
+
+body {
+  font-family: $font-family;
+  font-style: normal;
+  font-variant: normal;
+  color: $primary-color;
+}
+
+p {
+  font-size: smaller;
+  font-weight: bold;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.left, .right {
+  width: 50%;
+  position: static;
+
+  @media (max-width: $small-devices) {
+    float: none;
+    width: auto;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  :after {
+    content:"";
+    display: table;
+    clear: both;
+  }
+
+  @media (min-width: $small-devices) {
+    width: 750px;
+  }
+
+  @media (min-width: $medium-devices) {
+    width: 970px;
+  }
+
+  @media (min-width: $large-devices) {
+    width: 1170px;
+  }
+}
+
+.myselect {
+  position: static;
+  height: 86px;
+}
+
+ul.ul-select-menu {
+  border: 2px solid $light-grey;
+  border-radius: 2px;
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  max-width: $li-width;
+  li {
+    background-color: white;
+    color: $grey;
+    padding: 15px;
+
+    &:first-of-type {
+      position: static;
+    }
+
+    &:not(:first-of-type) {
+      display: none;
+    }
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &.active {
+    border: 2px solid $grey;
+    position: absolute;
+    width: 100%;
+
+    li {
+      display: block;
+      z-index: 99;
+
+      &:first-of-type {
+        color: $grey;
+        font-size: 12px;
+        top: -12px;
+        left: 10px;
+        padding: 5px;
+        position: absolute;
+      }
+    }
+  }
+}
