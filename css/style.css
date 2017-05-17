@@ -43,7 +43,10 @@ p {
 
 .select {
   position: static;
-  height: 86px; }
+  height: 90px; }
+  .select span {
+    font-size: 10px;
+    color: #de160f; }
 
 .select__ul {
   border: 2px solid #dddddd;
@@ -66,10 +69,10 @@ p {
     .select__ul li:not(:first-of-type) {
       display: none; }
   .select__ul.select__ul--active {
-    border: 2px solid #767676; }
+    border: 2px solid #767676;
+    z-index: 99; }
     .select__ul.select__ul--active li {
-      display: block;
-      z-index: 99; }
+      display: block; }
       .select__ul.select__ul--active li:first-of-type {
         z-index: 99;
         color: #767676;
@@ -122,7 +125,8 @@ p {
     .select__ul--selected li:first-of-type {
       display: block; }
   .select__ul--selected.select__ul--active {
-    border: 2px solid #767676; }
+    border: 2px solid #767676;
+    z-index: 99; }
     .select__ul--selected.select__ul--active li {
       display: block; }
       .select__ul--selected.select__ul--active li:hover, .select__ul--selected.select__ul--active li.selected {

@@ -71,7 +71,12 @@ p {
 
 .select {
   position: static;
-  height: 86px;
+  height: 90px;
+
+  span {
+    font-size: 10px;
+    color: $error-color;
+  }
 }
 
 .select__ul {
@@ -105,10 +110,10 @@ p {
 
    &.select__ul--active {
      border: 2px solid $grey;
+     z-index: 99;
 
      li {
        display: block;
-       z-index: 99;
 
        &:first-of-type {
          z-index: 99;
@@ -186,6 +191,7 @@ p {
 
   &.select__ul--active {
     border: 2px solid $grey;
+    z-index: 99;
 
     li {
       display: block;
