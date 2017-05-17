@@ -79,6 +79,10 @@ p {
   }
 }
 
+img {
+  pointer-events: none;
+}
+
 .select__ul {
    border: 2px solid $light-grey;
    border-radius: 2px;
@@ -128,6 +132,7 @@ p {
    }
 
    &.select__ul--disabled {
+     pointer-events: none;
      cursor: default;
      color: $light-grey;
 
@@ -203,6 +208,7 @@ p {
   }
 
   &.select__ul--disabled {
+    pointer-events: none;
     border: 2px solid $light-grey;
     cursor: default;
     color: $light-grey;
