@@ -83,7 +83,8 @@ img {
         top: -12px;
         left: 10px;
         padding: 5px;
-        position: absolute; }
+        position: absolute;
+        pointer-events: none; }
   .select__ul.select__ul--disabled {
     pointer-events: none;
     cursor: default;
@@ -121,7 +122,8 @@ img {
       top: -12px;
       left: 10px;
       padding: 5px;
-      position: absolute; }
+      position: absolute;
+      pointer-events: none; }
     .select__ul--selected li.selected {
       color: #000000;
       display: block;

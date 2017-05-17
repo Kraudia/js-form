@@ -46,7 +46,12 @@ $.fn.start = function() {
 
     if (ul.hasClass("select__ul--selected")) {
         var selectedLi = $("li.selected");
-        ul.find(selectedLi).append(arrowDown);
+        if (ul.hasClass("select__ul--active")) {
+
+            ul.children("li:nth-child(2)").append(arrowUp);
+        } else {
+            ul.find(selectedLi).append(arrowDown);
+        }
     } else {
         ul.find("li:first-of-type").append(arrowDown);
     }
@@ -55,10 +60,21 @@ $.fn.start = function() {
         if(!$(event.target).closest(ul).length) {
             ul.removeClass("select__ul--active");
 
-            var selectedLi = $("li.selected");
-            if (ul.find(selectedLi).text()=="Miesiąc") {
-                ul.removeClass("select__ul--selected").addClass("select__ul select__ul--error");
+            if (!ul.hasClass("select__ul--disabled")) {
+                var selectedLi = $("li.selected");
+                if (ul.find(selectedLi).length) {
+                    console.log("tak");
+                    if (ul.find(selectedLi).text()=="Miesiąc") {
+                        ul.removeClass("select__ul--selected").addClass("select__ul select__ul--error");
+                    }
+                } else {
+                    console.log("nope");
+                    ul.removeClass("select__ul--selected").addClass("select__ul select__ul--error");
+                    ul.siblings(".error").remove();
+                    ul.parent().append(error);
+                }
             }
+
 
 
             ul.find("li").find('img').remove();
