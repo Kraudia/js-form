@@ -53,9 +53,10 @@ p {
   padding: 0;
   list-style-type: none;
   max-width: 500px;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .select__ul:hover {
-    color: #444444; }
+    color: #000000; }
   .select__ul li {
     background-color: white;
     color: #767676;
@@ -68,7 +69,6 @@ p {
     border: 2px solid #767676; }
     .select__ul.select__ul--active li {
       display: block;
-      position: static;
       z-index: 99; }
       .select__ul.select__ul--active li:first-of-type {
         z-index: 99;
@@ -137,4 +137,4 @@ p {
     .select__ul--selected.select__ul--disabled li {
       color: #dddddd; }
   .select__ul--selected:hover {
-    border: 2px solid #444444; }
+    border: 2px solid #000000; }

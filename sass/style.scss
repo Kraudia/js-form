@@ -83,6 +83,7 @@ p {
    list-style-type: none;
    max-width: $li-width;
    width: 100%;
+  position: relative;
 
   &:hover {
     color: $black;
@@ -107,7 +108,6 @@ p {
 
      li {
        display: block;
-       position: static;
        z-index: 99;
 
        &:first-of-type {
@@ -212,7 +212,7 @@ p {
   }
 
   &:hover {
-    border: 2px solid $dark-grey;
+    border: 2px solid $black;
   }
 
 }
