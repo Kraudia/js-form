@@ -23,20 +23,39 @@ var ids = [
     "aktywne"
 ];
 
+
 $.fn.start = function() {
     var ul = $(this);
 
-    for (var i=0; i<months.length; i++) {
-        var li =  document.createElement("li");
-        li.textContent = months[i];
-        ul.append(li);
-    }
-
-    //click on select menu
+    var ul2 = $(this);
     $(this).on("click", "li", function(event) {
-        ul.toggleClass("active");
+        var li = $(this);
+
+
+
+        if (ul.hasClass("select__ul--active")) {
+            var selectedLi = $("li.selected");
+            ul.find(selectedLi).removeClass("selected");
+
+            li.addClass("selected");
+            ul.removeClass("select__ul--active");
+        } else {
+            ul.addClass("select__ul--active");
+
+            if(ul.hasClass("select__ul--error")) {
+                ul.removeClass("select__ul--error");
+            }
+        }
+
+        if (ul.hasClass("select__ul--selected")) {
+            var selectedLi = $("li.selected");
+            if (ul.find(selectedLi).text()=="Miesiąc") {
+                ul.removeClass("select__ul--selected").addClass("select__ul select__ul--error");
+            } else {
+                console.log("nieprawda, bo ", ul.find(selectedLi).text());
+            }
+        }
     });
 };
 
-//run
-for (var i=0; i<ids.length; i++) $("#"+ids[i]).start();
+$("#aktywne").start();

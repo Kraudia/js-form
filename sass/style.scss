@@ -5,7 +5,6 @@ $primary-color:   #797979;
 //colors
 $light-grey: #dddddd;
 $grey: #767676;
-$dark-grey: #444444;
 $black: #000000;
 $success-color: #17b722;
 $error-color: #de160f;
@@ -70,54 +69,150 @@ p {
   }
 }
 
-.myselect {
+.select {
   position: static;
   height: 86px;
 }
 
-ul.ul-select-menu {
+.select__ul {
+   border: 2px solid $light-grey;
+   border-radius: 2px;
+   cursor: pointer;
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   max-width: $li-width;
+   width: 100%;
+
+  &:hover {
+    color: $black;
+  }
+
+   li {
+     background-color: white;
+     color: $grey;
+     padding: 15px;
+
+     &:first-of-type {
+       position: static;
+     }
+
+     &:not(:first-of-type) {
+       display: none;
+     }
+   }
+
+   &.select__ul--active {
+     border: 2px solid $grey;
+
+     li {
+       display: block;
+       position: static;
+       z-index: 99;
+
+       &:first-of-type {
+         z-index: 99;
+         color: $grey;
+         font-size: 12px;
+         top: -12px;
+         left: 10px;
+         padding: 5px;
+         position: absolute;
+       }
+     }
+   }
+
+   &.select__ul--disabled {
+     cursor: default;
+     color: $light-grey;
+
+     &:hover {
+       border: 2px solid $light-grey;
+     }
+
+     li {
+       color: $light-grey;
+     }
+   }
+
+   &.select__ul--error {
+      border-bottom-color: $error-color;
+   }
+
+  &:hover {
+    border: 2px solid $black;
+  }
+ }
+
+.select__ul--selected {
+  background-color: white;
   border: 2px solid $light-grey;
+  border-bottom-color: $success-color;
   border-radius: 2px;
-  list-style-type: none;
   cursor: pointer;
   margin: 0;
   padding: 0;
+  list-style-type: none;
   max-width: $li-width;
+  width: 100%;
+  position: relative;
+
   li {
-    background-color: white;
     color: $grey;
     padding: 15px;
+    position: relative;
+    display: none;
 
     &:first-of-type {
+      background-color: white;
+      color: $grey;
+      font-size: 12px;
+      top: -12px;
+      left: 10px;
+      padding: 5px;
+      position: absolute;
+    }
+
+    &.selected {
+      color: $black;
+      display: block;
       position: static;
     }
 
-    &:not(:first-of-type) {
-      display: none;
-    }
-
-    &:hover {
-      color: $black;
+    &:first-of-type {
+      display: block;
     }
   }
 
-  &.active {
+  &.select__ul--active {
     border: 2px solid $grey;
-    position: absolute;
-    width: 100%;
 
     li {
       display: block;
-      z-index: 99;
 
-      &:first-of-type {
-        color: $grey;
-        font-size: 12px;
-        top: -12px;
-        left: 10px;
-        padding: 5px;
-        position: absolute;
+      &:hover, &.selected {
+        color: $black;
       }
     }
   }
+
+  &.select__ul--disabled {
+    border: 2px solid $light-grey;
+    cursor: default;
+    color: $light-grey;
+
+    &:hover {
+      border: 2px solid $light-grey;
+      color: $light-grey;
+    }
+
+    li {
+      color: $light-grey;
+    }
+  }
+
+  &:hover {
+    border: 2px solid $dark-grey;
+  }
+
 }
